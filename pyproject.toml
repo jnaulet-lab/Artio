@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "artio"
+version = "0.0.1"
+description = "Plateforme open source pour robots quadrupèdes imprimés en 3D (Raspberry Pi, MQTT / Home Assistant)"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "paho-mqtt>=2.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+# Pilote du bus série Feetech (fournit le module scservo_sdk)
+feetech = ["pyserial", "feetech-servo-sdk"]
+dev = ["pytest>=7", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]

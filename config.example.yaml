@@ -1,0 +1,55 @@
+# ==============================================================================
+# Artio - Modèle de configuration (Exemple)
+# ==============================================================================
+# Copiez ce fichier vers 'config.yaml' et adaptez les valeurs
+# avec vos paramètres réels.
+# ==============================================================================
+
+# Paramètres généraux du robot
+robot:
+  name: "artio_sim"             # Nom de l'instance
+  frequency_hz: 50              # Fréquence de la boucle de contrôle principale (Hz)
+
+# Mode d'exécution
+execution:
+  simulate: true                # true: utilise SimServoBus / false: utilise le bus Feetech réel
+
+# Configuration du bus de servomoteurs
+servos:
+  port: "/dev/ttyUSB0"          # Port série du convertisseur USB-TTL (ex: /dev/artio_servos)
+  baudrate: 1000000             # Vitesse de communication (1 Mbps pour STS3215)
+  timeout: 0.05                 # Timeout série en secondes
+
+  # Mapping des identifiants (IDs) des servos par patte
+  # FL: Front Left (Avant Gauche) | FR: Front Right (Avant Droit)
+  # RL: Rear Left  (Arrière Gauche)| RR: Rear Right  (Arrière Droit)
+  mapping:
+    front_left:
+      hip: 11
+      femur: 12
+      tibia: 13
+    front_right:
+      hip: 21
+      femur: 22
+      tibia: 23
+    rear_left:
+      hip: 31
+      femur: 32
+      tibia: 33
+    rear_right:
+      hip: 41
+      femur: 42
+      tibia: 43
+
+# Configuration du courtier (broker) MQTT pour l'intégration Home Assistant
+mqtt:
+  broker: "192.168.1.X"         # Adresse IP ou nom d'hôte du broker MQTT
+  port: 1883
+  username: "mqtt_user"         # Identifiant MQTT
+  password: "YOUR_MQTT_PASSWORD" # Mot de passe
+  client_id: "artio_controller"
+
+  # Topics MQTT
+  topic_prefix: "artio"
+  discovery_prefix: "homeassistant" # Préfixe pour le discovery automatique de Home Assistant
+  lwt_topic: "artio/status"     # Topic Last Will & Testament (online/offline)

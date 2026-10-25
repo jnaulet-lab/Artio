@@ -1,0 +1,25 @@
+# Configuration privée : jamais versionnée
+config.yaml
+config.local.yaml
+*.local.yaml
+.env
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Éditeurs / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Logs et données locales
+*.log
+data/

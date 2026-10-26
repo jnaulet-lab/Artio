@@ -1,5 +1,7 @@
 # Artio
 
+![Vue d'ensemble](docs/images/overview.jpg)
+
 **Plateforme de développement open source pour robots quadrupèdes imprimés en 3D, pilotés par Raspberry Pi, avec intégration domotique native (MQTT / Home Assistant).**
 
 > ⚠️ **Statut : en développement actif (pré-alpha).** Le code fonctionne en simulation (bus de servos simulé). Les tests sur matériel réel sont en cours. L'API et la structure du dépôt peuvent évoluer.
